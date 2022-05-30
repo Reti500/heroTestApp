@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface ComicsService {
 
     @GET("v1/public/comics")
-    suspend fun getComics() : Response<List<ComicsResponse>>
+    suspend fun getComics() : Response<ComicsResponse>
 }

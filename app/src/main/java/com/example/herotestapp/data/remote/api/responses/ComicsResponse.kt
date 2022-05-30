@@ -18,9 +18,9 @@ data class ComicsResponse(
     @SerializedName("attributionHTML")
     val attributionHTML: String,
 
+    @SerializedName("etag")
+    val eTag: String,
+
     @SerializedName("data")
     val data: ComicDataResponse,
-
-    @SerializedName("etag")
-    val eTag: String
 )
