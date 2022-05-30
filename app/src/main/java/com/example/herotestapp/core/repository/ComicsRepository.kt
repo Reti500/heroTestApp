@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface ComicsRepository {
 
     fun getComics() : Flow<Resource<List<Comic>>>
+    fun getComic(id: Int) : Flow<Resource<Comic>>
 }

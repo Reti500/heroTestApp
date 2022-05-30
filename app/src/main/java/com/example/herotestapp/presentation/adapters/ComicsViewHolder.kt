@@ -8,5 +8,8 @@ class ComicsViewHolder(
     private val binding: ItemComicBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: Comic) {}
+    fun bind(item: Comic) {
+        binding.comic = item
+        binding.executePendingBindings()
+    }
 }

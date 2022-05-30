@@ -25,4 +25,16 @@ class ComicsRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun getComic(id: Int): Flow<Resource<Comic>> = flow {
+        try {
+            emit(Resource.Loading<Comic>())
+            emit(Resource.Done<Comic>(data = remoteDataSource.getComic(id)))
+        } catch (t: Throwable) {
+            when(t) {
+                is RemoteDataError.NetWorkError -> emit(Resource.NetworkError<Comic>())
+                else -> emit(Resource.Failed<Comic>(0, t.message ?: ""))
+            }
+        }
+    }
+
 }

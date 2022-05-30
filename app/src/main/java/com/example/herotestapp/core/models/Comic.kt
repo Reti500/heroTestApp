@@ -6,7 +6,7 @@ data class Comic(
     val title: String,
     val issueNumber: Double,
     val variantDescription: String,
-    val description: String,
+    val description: String?,
     val modified: String,
     val isbn: String,
     val upc: String,
@@ -20,5 +20,6 @@ data class Comic(
     val series: ItemResource,
     val variants: List<ItemResource>,
     val collections: List<ItemResource>,
-    val collectedIssues: List<ItemResource>
+    val collectedIssues: List<ItemResource>,
+    val thumbnail: ItemPath
 )

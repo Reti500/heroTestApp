@@ -1,6 +1,7 @@
 package com.example.herotestapp.di
 
 import com.example.herotestapp.core.repository.ComicsRepository
+import com.example.herotestapp.core.use_cases.comics.GetComicById
 import com.example.herotestapp.core.use_cases.comics.GetComics
 import com.example.herotestapp.data.remote.api.RemoteDataSource
 import com.example.herotestapp.data.repository.ComicsRepositoryImpl
@@ -21,5 +22,10 @@ object ComicsModule {
     @Provides
     fun providesGetComicsUseCase(repository: ComicsRepository): GetComics {
         return GetComics(repository = repository)
+    }
+
+    @Provides
+    fun providesGetComicById(repository: ComicsRepository) : GetComicById {
+        return GetComicById(repository = repository)
     }
 }

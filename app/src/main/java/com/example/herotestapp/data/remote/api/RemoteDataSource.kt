@@ -13,4 +13,8 @@ class RemoteDataSource @Inject constructor(
     suspend fun getComics() : List<Comic> = getResult(ComicDataToDomain) {
         comicsService.getComics()
     }
+
+    suspend fun getComic(id: Int) : Comic = getResult(ComicDataToDomain) {
+        comicsService.getComic(id)
+    }.first()
 }

@@ -14,7 +14,7 @@ data class ComicDataResultResponse(
     @SerializedName("variantDescription")
     val variantDescription: String,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("modified")
     val modified: String,
     @SerializedName("isbn")
@@ -44,7 +44,9 @@ data class ComicDataResultResponse(
     @SerializedName("collections")
     val collections: List<Resource>,
     @SerializedName("collectedIssues")
-    val collectedIssues: List<Resource>
+    val collectedIssues: List<Resource>,
+    @SerializedName("thumbnail")
+    val thumbnail: ThumbnailResponse
 
     /*
     "id": 82967,

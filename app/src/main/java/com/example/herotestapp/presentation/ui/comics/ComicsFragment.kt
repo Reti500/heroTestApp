@@ -1,24 +1,24 @@
-package com.example.herotestapp.presentation.comics
+package com.example.herotestapp.presentation.ui.comics
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.herotestapp.databinding.FragmentComicsBinding
-import com.example.herotestapp.presentation.adapters.ComicsGridAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ComicsFragment : Fragment() {
 
     private val binding: FragmentComicsBinding by lazy {
-        FragmentComicsBinding.inflate(layoutInflater)
+        FragmentComicsBinding.inflate(layoutInflater).apply {
+            viewModel = comicsViewModel
+        }
     }
 
-    private val viewModel: ComicsViewModel by viewModels()
+    private val comicsViewModel: ComicsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,9 +28,8 @@ class ComicsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.e("CF", "Init")
-        binding.comicsGrid.adapter = ComicsGridAdapter(emptyList())
-        viewModel.executeGetComics()
+        binding.lifecycleOwner = this
+        comicsViewModel.executeGetComics()
     }
 
 }

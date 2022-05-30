@@ -14,7 +14,7 @@ class ComicsGridAdapter(
 
     override fun getCount(): Int = items.size
 
-    override fun getItem(position: Int): Any = items[position]
+    override fun getItem(position: Int): Comic = items[position]
 
     override fun getItemId(p0: Int): Long = 0
 
@@ -27,6 +27,9 @@ class ComicsGridAdapter(
             parent,
             false
         )
+
+        val holder = ComicsViewHolder(binding = binding)
+        holder.bind(getItem(position))
 
         return binding.root
     }

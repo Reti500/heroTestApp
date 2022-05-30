@@ -26,7 +26,8 @@ object ComicDataToDomain : Mapper<ComicsResponse, List<Comic>> {
             variants = it.variants.map { i -> ComicResourceToItemResource.map(i) },
             collectedIssues = it.collectedIssues.map { i -> ComicResourceToItemResource.map(i) },
             collections = it.collections.map { i -> ComicResourceToItemResource.map(i) },
-            urls = it.urls.map { i -> ComicUrlToItemUrl.map(i) }
+            urls = it.urls.map { i -> ComicUrlToItemUrl.map(i) },
+            thumbnail = ThumbnailToDomain.map(it.thumbnail)
         )
     }
 }

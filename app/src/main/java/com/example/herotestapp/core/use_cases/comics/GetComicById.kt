@@ -6,8 +6,8 @@ import com.example.herotestapp.core.repository.ComicsRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetComics @Inject constructor(
+class GetComicById @Inject constructor(
     private val repository: ComicsRepository
 ) {
-    operator fun invoke() : Flow<Resource<List<Comic>>> = repository.getComics()
+    operator fun invoke(id: Int) : Flow<Resource<Comic>> = repository.getComic(id)
 }
