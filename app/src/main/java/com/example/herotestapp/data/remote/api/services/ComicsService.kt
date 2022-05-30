@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ComicsService {
 
-    @GET("/comics")
+    @GET("v1/public/comics")
     suspend fun getComics() : Response<List<ComicsResponse>>
 }
