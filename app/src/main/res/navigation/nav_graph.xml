@@ -8,20 +8,23 @@
     <fragment
         android:id="@+id/comicsFragment"
         android:name="com.example.herotestapp.presentation.ui.comics.ComicsFragment"
-        android:label="fragment_comics"
+        android:label="@string/comics_list"
         tools:layout="@layout/fragment_comics" >
         <action
             android:id="@+id/action_comicsFragment_to_comicDetailFragment"
-            app:destination="@id/comicDetailFragment" />
+            app:destination="@id/comicDetailFragment">
+            <argument
+                android:name="comicId"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/comicDetailFragment"
         android:name="com.example.herotestapp.presentation.ui.comic_detail.ComicDetailFragment"
-        android:label="fragment_comic_detail"
+        android:label="@string/comic_detail"
         tools:layout="@layout/fragment_comic_detail">
         <argument
             android:name="comicId"
-            app:argType="string"
-            android:defaultValue="0" />
+            app:argType="string" />
     </fragment>
 </navigation>

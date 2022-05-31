@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.herotestapp.databinding.FragmentComicsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,6 +31,17 @@ class ComicsFragment : Fragment() {
 
         binding.lifecycleOwner = this
         comicsViewModel.executeGetComics()
+        selectComicObserver()
     }
 
+    private fun selectComicObserver() = comicsViewModel.selectedComic.observe(viewLifecycleOwner) {
+        it?.let {
+            findNavController().navigate(
+                ComicsFragmentDirections.actionComicsFragmentToComicDetailFragment(
+                    it.id.toString()
+                )
+            )
+
+        }
+    }
 }

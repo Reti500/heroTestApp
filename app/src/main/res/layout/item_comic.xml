@@ -11,14 +11,14 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="8dp"
-        app:cardCornerRadius="16dp"
-        android:background="@color/teal_200">
+        android:layout_margin="8dp"
+        android:elevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/teal_200">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:background="@drawable/shape_rounded_coorners">
 
             <ImageView
                 android:id="@+id/imageView"
@@ -27,7 +27,7 @@
                 android:layout_margin="4dp"
                 android:contentDescription="@string/comic_thumbnail"
                 android:maxHeight="150dp"
-                app:setImageUrl="@{comic.thumbnail.path}"
+                app:setPortraitUncannyImage="@{comic.thumbnail.path}"
                 app:extension="@{comic.thumbnail.extension}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

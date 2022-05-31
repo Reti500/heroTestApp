@@ -28,7 +28,7 @@ class ComicsGridAdapter(
             false
         )
 
-        val holder = ComicsViewHolder(binding = binding)
+        val holder = ComicsViewHolder(binding = binding, {})
         holder.bind(getItem(position))
 
         return binding.root
